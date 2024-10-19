@@ -6,16 +6,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import { Quiz } from "./quiz/720_receitas_zero";
-
-function App() {
- 
-
-  return (
-    <Container maxWidth="sm" style={{ marginTop: "50px" }}>
-      <Quiz />
-    </Container>
-  );
+function App({ children }) {
+  return <Container maxWidth="sm" style={{ marginTop: "50px" }}>{children}</Container>;
 }
 
 export default App;
