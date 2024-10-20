@@ -401,7 +401,7 @@ function Step6({ nextStep }) {
               text={"Pouco conhecimento"}
               onClick={nextStep}
             />
-            <GenericButton full text={"Igredientes caros"} onClick={nextStep} />
+            <GenericButton full text={"Ingredientes caros"} onClick={nextStep} />
           </Grid2>
         </Grid2>
       </Grid2>
