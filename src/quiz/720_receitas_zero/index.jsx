@@ -94,7 +94,8 @@ export function Quiz() {
 
   return (
     <>
-      <Pixel /> {steps[step]}
+      {/* <Pixel />  */}
+      {steps[step]}
     </>
   );
 }
@@ -552,6 +553,6 @@ function Step7({ nextStep }) {
 }
 
 function Step8({ nextStep }) {
-  // window.location.href =
-  //   "https://www.vomargarida.com.br/receitas-que-nao-vao-fogo";
+  window.location.href =
+    "https://www.vomargarida.com.br/receitas-que-nao-vao-fogo";
 }
