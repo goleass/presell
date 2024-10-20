@@ -72,13 +72,13 @@ export function Quiz() {
         sendMessage({
           msg: "Clicou em quero ir para pagina",
           location: res,
-        }).then(() => {
-          setTimeout(() => {
-            setStep((current) => current + 1);
-          }, 500);
         });
       });
     }
+
+    setTimeout(() => {
+      setStep((current) => current + 1);
+    }, 500);
   };
 
   const steps = [
