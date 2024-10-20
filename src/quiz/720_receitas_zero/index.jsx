@@ -70,7 +70,7 @@ export function Quiz() {
     if (step == 6) {
       getIp().then((res) => {
         sendMessage({
-          msg: "Clicou em quero ir para pagina",
+          msg: "Clicou em quero ir para paginaa",
           location: res,
         });
       });
