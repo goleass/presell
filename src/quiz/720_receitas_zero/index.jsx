@@ -92,12 +92,7 @@ export function Quiz() {
     <Step8 key={7} nextStep={nextStep} />,
   ];
 
-  return (
-    <>
-      {/* <Pixel />  */}
-      {steps[step]}
-    </>
-  );
+  return steps[step];
 }
 
 function Step({ nextStep }) {
