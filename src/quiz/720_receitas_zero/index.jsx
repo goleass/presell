@@ -8,6 +8,19 @@ import { Logo } from "../../components/logo";
 import { ImageButton } from "../../components/buttons/imageButton";
 import CheckIcon from "@mui/icons-material/Check";
 import { Helmet } from "react-helmet";
+import axios from "axios";
+
+const sendMessage = async (msg) => {
+  try {
+    // Enviando o POST para o endpoint '/send'
+    const response = await axios.post("http://localhost:3000/send", msg);
+
+    // Exibe a resposta no console
+    console.log("Resposta do servidor:", response.data);
+  } catch (error) {
+    console.error("Erro ao enviar o JSON:", error);
+  }
+};
 
 function Pixel() {
   return (
@@ -34,10 +47,32 @@ function Pixel() {
   );
 }
 
+const getIp = async () => {
+  try {
+    const response = await axios.get(
+      "https://ipinfo.io/json?token=a5f284fb8947cd"
+    );
+    const { ip, city, region, country } = response.data;
+
+    return { ip, city, region, country };
+  } catch (error) {
+    console.error("Erro ao obter o IP:", error);
+  }
+};
+
 export function Quiz() {
   const [step, setStep] = useState(0);
 
   const nextStep = () => {
+    if (step == 6) {
+      getIp().then((res) => {
+        sendMessage({
+          msg: "Clicou em quero ir para pagina",
+          location: res,
+        });
+      });
+    }
+
     setTimeout(() => {
       setStep((current) => current + 1);
     }, 500);
@@ -54,7 +89,11 @@ export function Quiz() {
     <Step8 key={7} nextStep={nextStep} />,
   ];
 
-  return <><Pixel /> {steps[step]}</>;
+  return (
+    <>
+      <Pixel /> {steps[step]}
+    </>
+  );
 }
 
 function Step({ nextStep }) {
@@ -401,7 +440,11 @@ function Step6({ nextStep }) {
               text={"Pouco conhecimento"}
               onClick={nextStep}
             />
-            <GenericButton full text={"Ingredientes caros"} onClick={nextStep} />
+            <GenericButton
+              full
+              text={"Ingredientes caros"}
+              onClick={nextStep}
+            />
           </Grid2>
         </Grid2>
       </Grid2>
@@ -506,5 +549,5 @@ function Step7({ nextStep }) {
 }
 
 function Step8({ nextStep }) {
-  window.location.href = "https://www.vomargarida.com.br/720-receitas-zero";
+  window.location.href = "/";
 }
