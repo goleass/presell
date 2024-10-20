@@ -7,6 +7,32 @@ import { GenericButton } from "../../components/buttons/genericButton";
 import { Logo } from "../../components/logo";
 import { ImageButton } from "../../components/buttons/imageButton";
 import CheckIcon from "@mui/icons-material/Check";
+import { Helmet } from "react-helmet";
+
+function Pixel() {
+  return (
+    <Helmet>
+      <script id="facebook-pixel-script">{`
+      		!function (f, b, e, v, n, t, s) {
+			if (f.fbq) return; n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+			n.queue = []; t = b.createElement(e); t.async = !0;
+			t.src = v; s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '848325614091392');
+		fbq('track', 'PageView');
+      `}</script>
+      <noscript id="facebook-pixel-image">{`
+      ><img height="1" width="1" style="display:none"
+			src="https://www.facebook.com/tr?id=848325614091392&ev=PageView&noscript=1" />`}</noscript>
+    </Helmet>
+  );
+}
 
 export function Quiz() {
   const [step, setStep] = useState(0);
@@ -28,7 +54,7 @@ export function Quiz() {
     <Step8 key={7} nextStep={nextStep} />,
   ];
 
-  return steps[step];
+  return <><Pixel /> {steps[step]}</>;
 }
 
 function Step({ nextStep }) {
@@ -463,7 +489,15 @@ function Step7({ nextStep }) {
             alignContent={"center"}
             justifyContent={"center"}
           >
-            <GenericButton full text={"Sim, quero muito!"} onClick={nextStep} style={{backgroundColor: "#00FA9A", boxShadow: "0px 10px 0px -3px green",}}/>
+            <GenericButton
+              full
+              text={"Sim, quero muito!"}
+              onClick={nextStep}
+              style={{
+                backgroundColor: "#00FA9A",
+                boxShadow: "0px 10px 0px -3px green",
+              }}
+            />
           </Grid2>
         </Grid2>
       </Grid2>
@@ -472,6 +506,5 @@ function Step7({ nextStep }) {
 }
 
 function Step8({ nextStep }) {
-  window.location.href =
-    "https://www.vomargarida.com.br/720-receitas-zero";
+  window.location.href = "https://www.vomargarida.com.br/720-receitas-zero";
 }
