@@ -13,7 +13,10 @@ import axios from "axios";
 const sendMessage = async (msg) => {
   try {
     // Enviando o POST para o endpoint '/send'
-    const response = await axios.post(import.meta.env.VITE_API_SEND_MESSAGE, msg);
+    const response = await axios.post(
+      import.meta.env.VITE_API_SEND_MESSAGE,
+      msg
+    );
 
     // Exibe a resposta no console
     console.log("Resposta do servidor:", response.data);
@@ -69,13 +72,13 @@ export function Quiz() {
         sendMessage({
           msg: "Clicou em quero ir para pagina",
           location: res,
+        }).then(() => {
+          setTimeout(() => {
+            setStep((current) => current + 1);
+          }, 500);
         });
       });
     }
-
-    setTimeout(() => {
-      setStep((current) => current + 1);
-    }, 500);
   };
 
   const steps = [
@@ -549,5 +552,6 @@ function Step7({ nextStep }) {
 }
 
 function Step8({ nextStep }) {
-  window.location.href = "https://www.vomargarida.com.br/receitas-que-nao-vao-fogo";
+  window.location.href =
+    "https://www.vomargarida.com.br/receitas-que-nao-vao-fogo";
 }
