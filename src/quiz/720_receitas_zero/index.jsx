@@ -13,7 +13,7 @@ import axios from "axios";
 const sendMessage = async (msg) => {
   try {
     // Enviando o POST para o endpoint '/send'
-    const response = await axios.post("http://localhost:3000/send", msg);
+    const response = await axios.post(import.meta.env.VITE_API_SEND_MESSAGE, msg);
 
     // Exibe a resposta no console
     console.log("Resposta do servidor:", response.data);
