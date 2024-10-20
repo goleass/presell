@@ -7,7 +7,7 @@ import { GenericButton } from "../../components/buttons/genericButton";
 import { Logo } from "../../components/logo";
 import { ImageButton } from "../../components/buttons/imageButton";
 import CheckIcon from "@mui/icons-material/Check";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
 const sendMessage = async (msg) => {
