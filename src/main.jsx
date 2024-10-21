@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import "./index.css";
 
@@ -20,17 +20,19 @@ const router = createBrowserRouter([
     path: "/",
     element: <App>Hellow</App>,
   },
-  // {
-  //   path: "/pixel-teste",
-  //   element: (
-  //     <App>
-  //       <Helmet>
-  //         <title>Opa Leo</title>
+  {
+    path: "/pixel-teste",
+    element: (
+      <HelmetProvider>
+        <App>
+        <Helmet>
+          <title>Opa Leo</title>
         
-  //       </Helmet>
-  //     </App>
-  //   ),
-  // },
+        </Helmet>
+        </App>
+      </HelmetProvider>
+    ),
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
