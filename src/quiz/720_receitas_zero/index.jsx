@@ -25,7 +25,7 @@ const sendMessage = async (msg) => {
   }
 };
 
-function Pixel() {
+export function Pixel() {
   return (
     <Helmet>
       <script id="facebook-pixel-script">{`

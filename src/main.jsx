@@ -5,7 +5,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import "./index.css";
 
-import { Quiz } from "./quiz/720_receitas_zero";
+import { Pixel, Quiz } from "./quiz/720_receitas_zero";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +26,7 @@ const router = createBrowserRouter([
       <HelmetProvider>
         <App>
         <Helmet>
-          <title>Opa Leo</title>
-        
+        <Pixel />
         </Helmet>
         </App>
       </HelmetProvider>
