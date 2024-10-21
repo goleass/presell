@@ -11,10 +11,12 @@ const router = createBrowserRouter([
   {
     path: "/720-receitas-zero",
     element: (
-      <App>
-        <Pixel />
-        <Quiz />
-      </App>
+      <HelmetProvider>
+        <App>
+          <Pixel />
+          <Quiz />
+        </App>
+      </HelmetProvider>
     ),
   },
   {
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
     element: (
       <HelmetProvider>
         <App>
-        <Pixel />
+          <Pixel />
         </App>
       </HelmetProvider>
     ),
